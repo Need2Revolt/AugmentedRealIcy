@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     public float startingDelay = 10;
     public float delayDecrease = 0.5f;
 
+    public int maxEnemies = 10;
+
     public GameObject[] enemyPrefabs;
 
     public ArrayList enemiesList;
@@ -25,13 +27,13 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > startingDelay) {
+        if(timer > startingDelay && enemiesList.Count < maxEnemies) {
             //rez code
             Debug.Log("AA");
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
             GameObject newEnemy = Instantiate(enemyPrefabs[enemyIndex], 
-            new Vector3(Random.Range(1, 5), Random.Range(1, 5), Random.Range(0, 2)), 
+            new Vector3(Random.Range(0.5f, 2), Random.Range(0.5f, 2), Random.Range(0, 1)), 
             Quaternion.identity);
 
             enemiesList.Add(newEnemy);
