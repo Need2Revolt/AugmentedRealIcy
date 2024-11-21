@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 60354391597514775}
   - component: {fileID: 3252552936921678425}
   - component: {fileID: 7053976763974396141}
+  - component: {fileID: 2443930029643504058}
   m_Layer: 0
   m_Name: CubicProjectile
   m_TagString: Untagged
@@ -92,7 +93,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040290385485031320}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6a5ec09cc89d4bb499f539d039ab5c2c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2443930029643504058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040290385485031320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7585c5b3af90cae94b5aabd71858e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 2
+  self: {fileID: 1040290385485031320}
