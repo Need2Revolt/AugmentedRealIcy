@@ -6,11 +6,11 @@ public class EnemyOrientation : MonoBehaviour
 {
     public GameObject projectile;
     private Transform camera;
-    private float speed;
+    private float speed = 250;
     private int axis = 0;
     private float timer;
     private float delay = 1.5f;
-    private float launchVelocity = 700f;
+    private float launchVelocity = 100f;
 
     private bool alreadyShot = false;
 
@@ -18,7 +18,6 @@ public class EnemyOrientation : MonoBehaviour
     void Start()
     {
         camera = GameObject.FindWithTag("Player").transform;
-        speed = 125;
     }
 
     // Update is called once per frame
@@ -57,9 +56,7 @@ public class EnemyOrientation : MonoBehaviour
     }
 
     void Shoot() {
-        Quaternion direction = transform.rotation;
-        direction.y = -1 * direction.y;
-        GameObject round = Instantiate(projectile, transform.position, direction);
+        GameObject round = Instantiate(projectile, transform.position, transform.rotation);
         round.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, launchVelocity));
     }
 }
