@@ -6,11 +6,11 @@ public class EnemyOrientation : MonoBehaviour
 {
     public GameObject projectile;
     private Transform camera;
-    private float speed = 250;
+    private float speed = 500;
     private int axis = 0;
     private float timer;
     private float delay = 1.5f;
-    private float launchVelocity = 100f;
+    private float launchVelocity = 0.01f;
 
     private bool alreadyShot = false;
 
