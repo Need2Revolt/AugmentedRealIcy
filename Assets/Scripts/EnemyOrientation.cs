@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyOrientation : MonoBehaviour
 {
     public GameObject projectile;
-    private Transform camera;
+    private Transform playerTransform;
     private float speed = 500;
     private int axis = 0;
     private float timer;
@@ -17,7 +17,7 @@ public class EnemyOrientation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        camera = GameObject.FindWithTag("Player").transform;
+        playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class EnemyOrientation : MonoBehaviour
                 transform.Rotate(0, 0, speed * Time.deltaTime);
             break;
             case 3:
-                transform.LookAt(camera);
+                transform.LookAt(playerTransform);
                 if(!alreadyShot) {
                     alreadyShot = true;
                     Shoot();
@@ -50,7 +50,7 @@ public class EnemyOrientation : MonoBehaviour
             break;
 
             default:
-                transform.LookAt(camera);
+                transform.LookAt(playerTransform);
             break;
         }
     }

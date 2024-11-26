@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
 
     private float timer;
 
+    public int[] direction = { 1, -1 };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,18 +31,18 @@ public class EnemySpawner : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > startingDelay && enemiesList.Count < maxEnemies) {
             //rez code
-            Debug.Log("AA");
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
             GameObject newEnemy = Instantiate(enemyPrefabs[enemyIndex], 
-            new Vector3(Random.Range(0.5f, 2), Random.Range(0.5f, 2), Random.Range(0, 1)), 
+            new Vector3(Random.Range(0.4f, 2f) * direction[Random.Range(0, 2)], 
+            Random.Range(0, 1),
+            Random.Range(0.4f, 2) * direction[Random.Range(0, 2)]), 
             Quaternion.identity);
 
             enemiesList.Add(newEnemy);
 
             startingDelay -= delayDecrease;
             timer = 0;
-            Debug.Log("AA "+timer);
         }
     }
 
