@@ -30,9 +30,12 @@ public class EnemySpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         if(timer > startingDelay && enemiesList.Count < maxEnemies) {
+            Debug.Log("N2R: spawning enemy #" + (enemiesList.Count +1));
             //rez code
             int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
+            //i need to figure out a way to calculate coordinates inside
+            //the mesh part reachable by the player. This could be a problem...
             GameObject newEnemy = Instantiate(enemyPrefabs[enemyIndex], 
             new Vector3(Random.Range(0.4f, 2f) * direction[Random.Range(0, 2)], 
             Random.Range(0, 1),
@@ -44,6 +47,10 @@ public class EnemySpawner : MonoBehaviour
             startingDelay -= delayDecrease;
             timer = 0;
         }
+        else {
+            Debug.Log("N2R: capped on enemies, refusing to spawn this cycle");
+        }
+
     }
 
 }

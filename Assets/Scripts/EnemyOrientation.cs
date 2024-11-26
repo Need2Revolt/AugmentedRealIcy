@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//class name sucks, it evolved into something different i need to decide if i want
+// to rename it or refactor it
 public class EnemyOrientation : MonoBehaviour
 {
     public GameObject projectile;

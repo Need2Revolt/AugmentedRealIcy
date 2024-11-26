@@ -11,10 +11,4 @@ public class SelfDestruct : MonoBehaviour
     {
         Destroy(self, destroyTime);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
