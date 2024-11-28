@@ -1,0 +1,12 @@
+Add HUD with health an enemies info
+Enemies should have hitpoints and a UI that's toggled upon gazing at them showing relevant infos like health
+Random spawning position should take real world's boundaries into account, let's try to play with the mesh generator itself
+Add more enemies types with different abilities
+Add sound for enemy rezzing, shooting and player shooting
+Add powerups: 
+	DDoS -> slows time. 
+	Nuke -> clears all. 
+	Shield -> temp immortality
+Add tutorial scene
+Main menu at startup?
+Leaderboard at the end?
