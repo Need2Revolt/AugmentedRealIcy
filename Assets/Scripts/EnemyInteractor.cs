@@ -7,8 +7,10 @@ public class EnemyInteractor : MonoBehaviour, IPointerClickHandler, IPointerEnte
 {
     public GameObject self;
 
+    private EnemySpawner enemySpawner;
     void Awake () {
         //do i need this?
+        enemySpawner = GameObject.FindGameObjectsWithTag("Spawner")[0].GetComponent<EnemySpawner>();
     }
 
     void Update()
@@ -20,7 +22,10 @@ public class EnemyInteractor : MonoBehaviour, IPointerClickHandler, IPointerEnte
     public void OnPointerClick(PointerEventData eventData)
     {
         //add enemies that don't die immediately?
+        Debug.Log("N2R: about to remove enemy");
+        enemySpawner.removeEnemy(self);
         Destroy(self, 0);
+        Debug.Log("N2R: remove enemy complete");
     }
 
     //when pointer hover, not sure what to do

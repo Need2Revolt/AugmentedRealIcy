@@ -29,28 +29,34 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if(timer > startingDelay && enemiesList.Count < maxEnemies) {
-            Debug.Log("N2R: spawning enemy #" + (enemiesList.Count +1));
-            //rez code
-            int enemyIndex = Random.Range(0, enemyPrefabs.Length);
+        if(timer > startingDelay) {
+            if(enemiesList.Count < maxEnemies) {
+                Debug.Log("N2R: spawning enemy #" + (enemiesList.Count +1));
+                //rez code
+                int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
-            //i need to figure out a way to calculate coordinates inside
-            //the mesh part reachable by the player. This could be a problem...
-            GameObject newEnemy = Instantiate(enemyPrefabs[enemyIndex], 
-            new Vector3(Random.Range(0.4f, 2f) * direction[Random.Range(0, 2)], 
-            Random.Range(0, 1),
-            Random.Range(0.4f, 2) * direction[Random.Range(0, 2)]), 
-            Quaternion.identity);
+                //i need to figure out a way to calculate coordinates inside
+                //the mesh part reachable by the player. This could be a problem...
+                GameObject newEnemy = Instantiate(enemyPrefabs[enemyIndex], 
+                new Vector3(Random.Range(0.4f, 2f) * direction[Random.Range(0, 2)], 
+                Random.Range(0, 1),
+                Random.Range(0.4f, 2) * direction[Random.Range(0, 2)]), 
+                Quaternion.identity);
 
-            enemiesList.Add(newEnemy);
+                enemiesList.Add(newEnemy);
 
-            startingDelay -= delayDecrease;
-            timer = 0;
+                startingDelay -= delayDecrease;
+                timer = 0;
+            }
+            else {
+                Debug.Log("N2R: capped on enemies, refusing to spawn this cycle. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
+            }
         }
-        else {
-            Debug.Log("N2R: capped on enemies, refusing to spawn this cycle");
-        }
+    }
 
+    public void removeEnemy(GameObject newEnemy){
+        enemiesList.Remove(newEnemy);
+        Debug.Log("N2R: removed enemy. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
     }
 
 }
