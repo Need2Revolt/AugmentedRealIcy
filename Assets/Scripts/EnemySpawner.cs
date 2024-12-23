@@ -17,12 +17,15 @@ public class EnemySpawner : MonoBehaviour
 
     public int[] direction = { 1, -1 };
 
+    private int kills;
+
     // Start is called before the first frame update
     void Start()
     {
         //StartCoroutine(Spawn());
         timer = 0;
         enemiesList = new ArrayList();
+        kills = 0;
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
         timer += Time.deltaTime;
         if(timer > startingDelay) {
             if(enemiesList.Count < maxEnemies) {
-                Debug.Log("N2R: spawning enemy #" + (enemiesList.Count +1));
+                //Debug.Log("N2R: spawning enemy #" + (enemiesList.Count +1));
                 //rez code
                 int enemyIndex = Random.Range(0, enemyPrefabs.Length);
 
@@ -49,14 +52,18 @@ public class EnemySpawner : MonoBehaviour
                 timer = 0;
             }
             else {
-                Debug.Log("N2R: capped on enemies, refusing to spawn this cycle. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
+                //Debug.Log("N2R: capped on enemies, refusing to spawn this cycle. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
             }
         }
     }
 
     public void removeEnemy(GameObject newEnemy){
         enemiesList.Remove(newEnemy);
-        Debug.Log("N2R: removed enemy. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
+        //Debug.Log("N2R: removed enemy. Count: " + enemiesList.Count + "   Capacity: " + enemiesList.Capacity );
+        kills++;
     }
 
+    public int getKills() {
+        return kills;
+    }
 }

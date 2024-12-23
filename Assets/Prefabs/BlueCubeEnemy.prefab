@@ -140,9 +140,9 @@ MonoBehaviour:
   renderers: []
   style:
     texture: {fileID: 2800000, guid: bbb7d30b7aa00b64a88c646a60e33dd7, type: 3}
-    color: {r: 0.069640584, g: 0.745283, b: 0.05273228, a: 1}
-    width: 6
-    height: 6
+    color: {r: 0.034791384, g: 0.972549, b: 0.031372517, a: 1}
+    width: 8
+    height: 8
 --- !u!114 &8386702365354065471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,17 +158,17 @@ MonoBehaviour:
   visible: 1
   renderers: []
   style:
-    texture: {fileID: 2800000, guid: bbb7d30b7aa00b64a88c646a60e33dd7, type: 3}
+    texture: {fileID: 0}
     color: {r: 0.07058824, g: 0.74509805, b: 0.050980393, a: 1}
-    width: 4
-    height: 4
+    width: 8
+    height: 8
   showArrow: 1
   arrowStyle:
     texture: {fileID: 2800000, guid: b14d512c127ad2545b2ce2126a7690c6, type: 3}
     color: {r: 0.07058824, g: 0.74509805, b: 0.050980393, a: 1}
     margin: 0
-    width: 2
-    height: 2
+    width: 4
+    height: 4
 --- !u!114 &-8263752998596468355
 MonoBehaviour:
   m_ObjectHideFlags: 0
