@@ -118,6 +118,39 @@ namespace NRKernal.NRExamples
                 {
                     var pair = m_ClassifiedMeshFilterPrefabs[i];
                     filters.Add(pair.label, pair.meshFilter == null ? null : Instantiate(pair.meshFilter));
+                    if(i == 3) // floor, using index because i can't see the definition for the label
+                    {
+                        //UnityEngine.Debug.Log("N2R: Found floor: " + pair.meshFilter);
+                        UnityEngine.Debug.Log("N2R: MeshFilter transform: " + pair.meshFilter.transform.position);
+                        if(pair.meshFilter.mesh != null)
+                        {
+                            UnityEngine.Debug.Log("N2R: MeshFilter mesh not null");
+                            if(pair.meshFilter.mesh.vertices != null)
+                            {
+                                UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices not null");
+                                UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices length: " + pair.meshFilter.mesh.vertices.Length);
+                                if(pair.meshFilter.mesh.vertices.Length > 0)
+                                {
+                                    UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices length > 0");
+                                    UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices 0: " + pair.meshFilter.mesh.vertices[0]);
+                                    UnityEngine.Debug.Log("N2R: Mesh vertex "+ pair.meshFilter.mesh.vertices.Length +": " + pair.meshFilter.mesh.vertices[pair.meshFilter.mesh.vertices.Length - 1]);
+                                }
+                                else
+                                {
+                                    UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices length <= 0");
+                                }
+                            }
+                            else
+                            {
+                                UnityEngine.Debug.Log("N2R: MeshFilter mesh vertices null");
+                            }
+                        }
+                        //UnityEngine.Debug.Log("N2R: Mesh vertex 0: " + pair.meshFilter.mesh.vertices[0]);
+                        //UnityEngine.Debug.Log("N2R: Mesh normal 0: " + pair.meshFilter.mesh.normals[0]);
+                        //UnityEngine.Debug.Log("N2R: Mesh vertex "+ pair.meshFilter.mesh.vertices.Length +": " + pair.meshFilter.mesh.vertices[pair.meshFilter.mesh.vertices.Length - 1]);
+                        //UnityEngine.Debug.Log("N2R: Mesh normal "+ pair.meshFilter.mesh.normals.Length + ": " + pair.meshFilter.mesh.normals[pair.meshFilter.mesh.normals.Length - 1]);
+                        //UnityEngine.Debug.Log("N2R: Mesh: " + pair.meshFilter.mesh);
+                    }
                 }
                 m_ClassifiedMeshFilters.Add(identifier, filters);
             }
